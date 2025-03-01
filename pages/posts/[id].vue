@@ -6,12 +6,13 @@
     <div v-if="post" class="bg-white p-4 rounded shadow-md">
       <h2 class="text-xl font-semibold">{{ post.title }}</h2>
       <p class="text-gray-600">{{ post.body }}</p>
-      <button
-        class="bg-yellow-500 px-5 py-3 text-white rounded-md font-bold my-4 cursor-pointer"
-        @click="goToBack"
-      >
-        Back
-      </button>
+      <NuxtLink to="/">
+        <button
+          class="bg-yellow-500 px-5 py-3 text-white rounded-md font-bold my-4 cursor-pointer"
+        >
+          Back
+        </button>
+      </NuxtLink>
     </div>
     <p v-else>Loading...</p>
   </div>
@@ -32,8 +33,4 @@ onMounted(() => {
     postsStore.fetchPosts();
   }
 });
-
-const goToBack = () => {
-  navigateTo("/");
-};
 </script>
